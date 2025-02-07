@@ -3,6 +3,10 @@ import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-4 flex flex-col items-center text-center">
@@ -31,14 +35,19 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <Button size="lg" className="bg-gradient-to-r from-red-500 to-red-600">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-red-500 to-red-600"
+            onClick={scrollToContact}
+          >
             Get in touch
           </Button>
         </motion.div>
       </div>
 
-      <motion.div
-        className="absolute bottom-8"
+      <motion.a
+        href="#about"
+        className="absolute bottom-8 cursor-pointer"
         animate={{
           y: [0, 10, 0],
         }}
@@ -48,7 +57,7 @@ export default function Hero() {
         }}
       >
         <ChevronDown className="w-8 h-8" />
-      </motion.div>
+      </motion.a>
     </section>
   );
 }

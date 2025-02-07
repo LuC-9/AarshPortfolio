@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
@@ -10,6 +11,27 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    document.querySelectorAll("section[id]").forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm"
@@ -27,7 +49,17 @@ export default function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className={`text-sm font-medium transition-colors hover:text-foreground ${
+                      activeSection === item.href.slice(1)
+                        ? "text-foreground"
+                        : "text-muted-foreground"
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document
+                        .querySelector(item.href)
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
                   >
                     {item.label}
                   </a>

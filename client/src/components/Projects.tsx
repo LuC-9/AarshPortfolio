@@ -52,11 +52,12 @@ export default function Projects() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ 
                 scale: 1.05,
-                rotateX: 5,
-                rotateY: 5,
-                z: 50
+                transition: { 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
               }}
-              style={{ perspective: 1000 }}
             >
               <Card className="h-full">
                 <CardHeader>

@@ -50,11 +50,12 @@ export default function Experience() {
               transition={{ delay: index * 0.2 }}
               whileHover={{ 
                 scale: 1.05,
-                rotateX: 5,
-                rotateY: 5,
-                z: 50
+                transition: { 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
               }}
-              style={{ perspective: 1000 }}
             >
               <Card className="mb-6">
                 <CardContent className="p-6 flex items-center gap-4">

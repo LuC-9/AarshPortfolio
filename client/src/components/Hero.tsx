@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
+import SocialLinks from "./SocialLinks";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -31,10 +32,12 @@ export default function Hero() {
         </motion.h2>
 
         <motion.div
+          className="flex flex-col items-center gap-6"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
+          <SocialLinks />
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-red-500 to-red-600"

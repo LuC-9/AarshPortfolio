@@ -4,9 +4,6 @@ import ThemeToggle from "./ThemeToggle";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import SocialLinks from "./SocialLinks";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Added for routing
-import BlogPage from './BlogPage'; // Added BlogPage component
-
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -14,7 +11,6 @@ const navItems = [
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
-  { href: "/blog", label: "Blog" }, // Added blog link
 ];
 
 export default function Navbar() {
@@ -61,19 +57,20 @@ export default function Navbar() {
             <ul className="flex items-center gap-6">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href}  // Changed to Link for routing
+                  <a
+                    href={item.href}
                     className={`text-sm font-medium transition-colors hover:text-foreground ${
-                      activeSection === item.href.slice(1) || item.href === '/blog' ? "text-foreground" : "text-muted-foreground"
+                      activeSection === item.href.slice(1)
+                        ? "text-foreground"
+                        : "text-muted-foreground"
                     }`}
                     onClick={(e) => {
-                      if (item.href !== '/blog'){ // prevents default behavior for non-blog links
-                        e.preventDefault();
-                        scrollToSection(item.href);
-                      }
+                      e.preventDefault();
+                      scrollToSection(item.href);
                     }}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -96,7 +93,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <motion.div
+          <motion.div 
             className="md:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,19 +101,20 @@ export default function Navbar() {
             <ul className="py-4 space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href} // Changed to Link for routing
+                  <a
+                    href={item.href}
                     className={`block py-2 px-4 text-sm font-medium transition-colors hover:text-foreground ${
-                      activeSection === item.href.slice(1) || item.href === '/blog' ? "text-foreground" : "text-muted-foreground"
+                      activeSection === item.href.slice(1)
+                        ? "text-foreground"
+                        : "text-muted-foreground"
                     }`}
                     onClick={(e) => {
-                      if (item.href !== '/blog'){ // prevents default behavior for non-blog links
-                        e.preventDefault();
-                        scrollToSection(item.href);
-                      }
+                      e.preventDefault();
+                      scrollToSection(item.href);
                     }}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -129,40 +127,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-
-
-// Added BlogPage component
-import React from 'react';
-
-const BlogPage = () => {
-  return (
-    <div>
-      <h1>Blog Page</h1>
-      <p>This is where you can post your blogs.</p>
-      {/* Add blog post form or display here */}
-    </div>
-  );
-};
-
-export default BlogPage;
-
-
-// Added App.tsx (Assumed structure)
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './Navbar';
-import BlogPage from './BlogPage'; // Import BlogPage
-
-function App() {
-  return (
-    <Router>
-        <Navbar/>
-        <Routes>
-          <Route path="/blog" element={<BlogPage />} /> {/* Added blog route */}
-          {/* Other routes */}
-        </Routes>
-    </Router>
-  );
-}
-
-export default App;

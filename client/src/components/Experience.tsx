@@ -48,6 +48,13 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
+              whileHover={{ 
+                scale: 1.05,
+                rotateX: 5,
+                rotateY: 5,
+                z: 50
+              }}
+              style={{ perspective: 1000 }}
             >
               <Card className="mb-6">
                 <CardContent className="p-6 flex items-center gap-4">

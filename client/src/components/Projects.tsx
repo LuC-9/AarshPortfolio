@@ -50,8 +50,15 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              whileHover={{ 
+                scale: 1.05,
+                rotateX: 5,
+                rotateY: 5,
+                z: 50
+              }}
+              style={{ perspective: 1000 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow">
+              <Card className="h-full">
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                 </CardHeader>

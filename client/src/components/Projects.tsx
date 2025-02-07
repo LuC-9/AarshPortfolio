@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { Code2 } from "lucide-react";
 
 const projects = [
   {
@@ -29,14 +30,24 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Projects
-        </motion.h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ scale: 0, rotate: 180, opacity: 0 }}
+            whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <Code2 className="w-8 h-8 text-primary" />
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Projects
+          </motion.h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
-import { Building2 } from "lucide-react";
+import { Building2, Briefcase } from "lucide-react";
 import { SiInfosys } from "react-icons/si";
 
 const experiences = [
@@ -28,14 +28,24 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Experience
-        </motion.h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ rotate: -30, opacity: 0 }}
+            whileInView={{ rotate: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <Briefcase className="w-8 h-8 text-primary" />
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Experience
+          </motion.h2>
+        </div>
 
         <div className="max-w-3xl mx-auto">
           {experiences.map((exp, index) => (

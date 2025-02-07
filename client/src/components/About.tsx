@@ -1,18 +1,29 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
+import { User2 } from "lucide-react";
 
 export default function About() {
   return (
     <section id="about" className="py-20">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          About Me
-        </motion.h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <User2 className="w-8 h-8 text-primary" />
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            About Me
+          </motion.h2>
+        </div>
 
         <Card>
           <CardContent className="p-6">

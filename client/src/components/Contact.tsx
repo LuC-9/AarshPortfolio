@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
+import { Mail } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -62,14 +63,24 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Get in Touch
-        </motion.h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <Mail className="w-8 h-8 text-primary" />
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Get in Touch
+          </motion.h2>
+        </div>
 
         <Card className="max-w-lg mx-auto">
           <CardHeader>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
+import { Wrench } from "lucide-react";
 
 const skills = [
   "JavaScript",
@@ -22,14 +23,24 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Skills
-        </motion.h2>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <motion.div
+            initial={{ rotate: 180, opacity: 0 }}
+            whileInView={{ rotate: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <Wrench className="w-8 h-8 text-primary" />
+          </motion.div>
+          <motion.h2
+            className="text-3xl font-bold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Skills
+          </motion.h2>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-4">
           {skills.map((skill, index) => (

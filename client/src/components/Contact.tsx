@@ -72,7 +72,7 @@ export default function Contact() {
           >
             <Mail className="w-8 h-8 text-primary" />
           </motion.div>
-
+          
         </div>
 
         <Card className="max-w-lg mx-auto">

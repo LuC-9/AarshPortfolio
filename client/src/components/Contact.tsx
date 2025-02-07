@@ -72,14 +72,7 @@ export default function Contact() {
           >
             <Mail className="w-8 h-8 text-primary" />
           </motion.div>
-          <motion.h2
-            className="text-3xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Get in Touch
-          </motion.h2>
+          
         </div>
 
         <Card className="max-w-lg mx-auto">

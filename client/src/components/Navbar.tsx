@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
+import SocialLinks from "./SocialLinks";
 
 const navItems = [
   { href: "#about", label: "About" },
@@ -73,6 +74,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
+            <SocialLinks />
             <ThemeToggle />
           </div>
 
@@ -116,6 +118,9 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
+            <div className="px-4 py-2">
+              <SocialLinks />
+            </div>
           </motion.div>
         )}
       </div>

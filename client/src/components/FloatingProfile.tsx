@@ -16,33 +16,27 @@ export default function FloatingProfile() {
   const imageSize = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["0rem", "2.5rem"] : ["12rem", "2.5rem"]
-  );
-
-  const imageX = useTransform(
-    scrollY,
-    [0, 300],
-    isMobile ? ["50%", "2rem"] : ["50%", "2rem"]
+    isMobile ? ["10rem", "2.5rem"] : ["10rem", "2.5rem"]
   );
 
   const imageY = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? ["8rem", "1.25rem"] : ["12rem", "1.25rem"]
+    isMobile ? ["6rem", "0.75rem"] : ["6rem", "0.75rem"]
   );
 
   return (
     <motion.div
-      className="fixed top-0 left-0 z-50"
+      className="fixed left-1/2 top-0 z-50"
       style={{
-        translateX: imageX,
-        translateY: imageY,
+        y: imageY,
+        x: "-50%",
       }}
     >
       <motion.img
         src="/profile.jpg"
         alt="Aarsh Mishra"
-        className="rounded-full object-cover"
+        className="rounded-full object-cover border-2 border-white/10"
         style={{
           width: imageSize,
           height: imageSize,

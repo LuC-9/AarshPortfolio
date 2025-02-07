@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-4 flex flex-col items-center text-center">
-        <div className="h-48 mb-8" /> {/* Spacer for floating profile */}
+        <div className="h-40 mb-8" /> {/* Reduced spacer height */}
 
         <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-4"

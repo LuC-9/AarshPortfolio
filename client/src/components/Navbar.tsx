@@ -12,16 +12,14 @@ const navItems = [
 export default function Navbar() {
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm"
+      className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-sm"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold">
-            AM
-          </a>
+          <div className="w-10 h-10" /> {/* Placeholder for floating profile */}
 
           <div className="flex items-center gap-8">
             <ul className="hidden md:flex items-center gap-6">

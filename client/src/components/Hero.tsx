@@ -6,15 +6,8 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-4 flex flex-col items-center text-center">
-        <motion.img
-          src="/profile.jpg"
-          alt="Aarsh Mishra"
-          className="w-48 h-48 rounded-full object-cover mb-8"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-        
+        <div className="h-48 mb-8" /> {/* Spacer for floating profile */}
+
         <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-4"
           initial={{ y: 20, opacity: 0 }}

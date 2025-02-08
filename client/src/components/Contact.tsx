@@ -17,7 +17,7 @@ export default function Contact() {
 
     try {
       // Replace BOT_TOKEN and CHAT_ID with your actual Telegram bot token and chat ID
-      const BOT_TOKEN = process.env.BOT_TOKENTG;
+      const BOT_TOKEN = "5558392279:AAHzj1ZwLFxusJrPddvQzChYKVpWxyFYTTQ";
       const CHAT_ID = "728907666";
 
       const text = `
